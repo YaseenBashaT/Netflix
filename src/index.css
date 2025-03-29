@@ -1,0 +1,105 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 9%;
+    --foreground: 0 0% 100%;
+
+    --card: 0 0% 11%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 0 0% 11%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 0 100% 49%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 0 0% 20%;
+    --muted-foreground: 0 0% 60%;
+
+    --accent: 0 0% 15%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 100% 49%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 0 100% 49%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-netflix-black text-netflix-light;
+  }
+}
+
+.movie-card {
+  @apply relative overflow-hidden rounded-md transition-all duration-300 hover:z-10;
+}
+
+.movie-card:hover {
+  @apply transform scale-110 shadow-xl;
+}
+
+.movie-poster {
+  @apply w-full aspect-[2/3] object-cover;
+}
+
+.movie-overlay {
+  @apply absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 opacity-0 transition-opacity duration-300;
+}
+
+.movie-card:hover .movie-overlay {
+  @apply opacity-100;
+}
+
+.movie-rows {
+  @apply space-y-8 py-8;
+}
+
+.movie-row {
+  @apply space-y-2;
+}
+
+.movie-row-title {
+  @apply text-xl font-semibold text-netflix-light px-4;
+}
+
+.movie-row-content {
+  @apply flex space-x-4 overflow-x-auto px-4 pb-4 scrollbar-hide;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hero-section {
+  @apply relative h-[80vh] w-full bg-cover bg-center;
+}
+
+.hero-overlay {
+  @apply absolute inset-0 bg-gradient-to-r from-black/90 via-black/50 to-transparent;
+}
+
+.hero-content {
+  @apply absolute bottom-0 left-0 p-8 w-1/2;
+}
